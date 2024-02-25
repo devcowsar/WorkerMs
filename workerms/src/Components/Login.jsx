@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+	const [values,setValues]=useState({
+		email:'',
+		password:''
+	})
+	const navigate = useNavigate()
+	axios.defaults.withCredentials = true;
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const data = new FormData(event.currentTarget);
-		console.log({
-			email: data.get('email'),
-			password: data.get('password'),
-		});
+		axios.post('http://localhost:3000/auth/adminlogin',values).then(result=>navigate('/dashboard')).catch(err=>console.log(err))
+		
 	};
 
 	return (
@@ -63,7 +66,7 @@ const Login = () => {
 							label="Email Address"
 							name="email"
 							autoComplete="email"
-							autoFocus
+							onChange={(e)=>setValues({...values,email:e.target.value})}
 						/>
 						<TextField
 							margin="normal"
@@ -74,6 +77,7 @@ const Login = () => {
 							type="password"
 							id="password"
 							autoComplete="current-password"
+							onChange={(e)=>setValues({...values,password:e.target.value})}
 						/>
 						
 						<Button
