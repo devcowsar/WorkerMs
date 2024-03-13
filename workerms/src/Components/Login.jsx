@@ -16,12 +16,16 @@ const Login = () => {
 	const [values,setValues]=useState({
 		email:'',
 		password:''
-	})
+	});
+	const [error, setError] = useState(null)
 	const navigate = useNavigate()
 	axios.defaults.withCredentials = true;
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		axios.post('http://localhost:3000/auth/adminlogin',values).then(result=>navigate('/dashboard')).catch(err=>console.log(err))
+		axios.post('http://localhost:3000/auth/adminlogin',values).then(result=>{if(result.data.loginStatus){navigate('/dashboard')}
+	else{
+      setError(result.data.Error)
+	}}).catch(err=>console.log(err))
 		
 	};
 
@@ -54,6 +58,7 @@ const Login = () => {
 					<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
 						<LockOutlinedIcon />
 					</Avatar>
+					<Typography color="red">{error && error}</Typography>
 					<Typography component="h1" variant="h5">
 						Log in
 					</Typography>
