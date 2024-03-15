@@ -15,24 +15,24 @@ const Dashboard = () => {
       >
         <Paper square elevation={1} sx={{ backgroundColor: "slategrey", minHeight: "100vh" }}>
           <Stack direction="column" spacing={4} justifyContent="space-between" alignSelf="strech">
-            <Link to="/dashboard" style={{textDecoration:"none"}}> 
-            <Box pt={5} pl={1} ><Typography variant='h5' color="whitesmoke" fontWeight={700}>workers management</Typography></Box>
+            <Link to="/dashboard" style={{ textDecoration: "none" }}>
+              <Box pt={5} pl={1} ><Typography variant='h5' color="whitesmoke" fontWeight={700}>workers management</Typography></Box>
             </Link>
             <Stack pl={4} direction="column" spacing={2}>
-              <Link to="/dashboard" style={{textDecoration:'none'}}>
-              <Box display="flex" flexDirection="row" alignItems="center" gap={1.5}><SpeedIcon fontSize='medium'/> <Typography variant='h6'>Dashboard</Typography></Box>
+              <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+                <Box display="flex" flexDirection="row" alignItems="center" gap={1.5}><SpeedIcon fontSize='medium' /> <Typography variant='h6'>Dashboard</Typography></Box>
               </Link>
-              <Link to="/dashboard/worker" style={{textDecoration: 'none'}}>
-              <Box display="flex" flexDirection="row" alignItems="center" gap={1.5}><PeopleIcon fontSize='medium'/> <Typography variant='h6'>Manage Employees</Typography></Box>
+              <Link to="/dashboard/worker" style={{ textDecoration: 'none' }}>
+                <Box display="flex" flexDirection="row" alignItems="center" gap={1.5}><PeopleIcon fontSize='medium' /> <Typography variant='h6'>Manage Employees</Typography></Box>
               </Link>
-              <Link to= "/dashboard/category" style={{ textDecoration: 'none' }}>
-              <Box display="flex" flexDirection="row" gap={1.5} alignItems="center" ><LibraryBooksIcon fontSize='medium'/> <Typography  variant='h6'>Category</Typography></Box>
+              <Link to="/dashboard/category" style={{ textDecoration: 'none' }}>
+                <Box display="flex" flexDirection="row" gap={1.5} alignItems="center" ><LibraryBooksIcon fontSize='medium' /> <Typography variant='h6'>Category</Typography></Box>
               </Link>
               <Link to="/dashboard/profile" style={{ textDecoration: 'none' }}>
-              <Box display="flex" flexDirection="row" alignItems="center" gap={1.5} > <PersonIcon fontSize="medium"/> <Typography variant='h6'>Profile</Typography></Box>
+                <Box display="flex" flexDirection="row" alignItems="center" gap={1.5} > <PersonIcon fontSize="medium" /> <Typography variant='h6'>Profile</Typography></Box>
               </Link>
               <Link to="" style={{ textDecoration: 'none' }}>
-              <Box display="flex" flexDirection="row" gap={1.5} alignItems="center"  > <PowerSettingsNewIcon fontSize="medium" /> <Typography variant='h6'>Logout</Typography></Box>
+                <Box display="flex" flexDirection="row" gap={1.5} alignItems="center"  > <PowerSettingsNewIcon fontSize="medium" /> <Typography variant='h6'>Logout</Typography></Box>
               </Link>
 
             </Stack>
