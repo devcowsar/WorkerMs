@@ -8,6 +8,7 @@ import Worker from './Components/Worker'
 import Category from './Components/Category'
 import Profile from './Components/Profile'
 import AddCategory from './Components/AddCategory'
+import AddWorker from './Components/AddWorker'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/dashboard/category' element={<Category />}></Route>
           <Route path='/dashboard/profile' element={<Profile />}></Route>
           <Route path='/dashboard/add_category' element={<AddCategory/>}></Route>
+          <Route path='/dashboard/add_worker' element={<AddWorker/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
