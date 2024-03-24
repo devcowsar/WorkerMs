@@ -41,7 +41,7 @@ const AddWorker = () => {
     formData.append('image', worker.image);
     formData.append('category_id', worker.category_id); 
 
-    axios.post('http://localhost:3000/auth/add_worker', worker).then(result => {
+    axios.post('http://localhost:3000/auth/add_worker', formData).then(result => {
       if (result.data.Status) {
         navigate('/dashboard/worker')
       } else {
