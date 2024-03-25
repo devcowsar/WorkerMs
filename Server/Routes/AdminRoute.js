@@ -81,4 +81,14 @@ router.post('/add_worker',upload.single('image'), (req, res) => {
       })
   })
 })
+
+router.get('/worker',(req,res)=>{
+  const sql ="SELECT *FROM woker";
+  con.query(sql,(err, result)=>{
+    if(err) return res.json({Status:false, Error: "Query Error"})
+    return res.json({Status: true, Result:result})
+  })
+  
+})
+
   export {router as adminRouter}
