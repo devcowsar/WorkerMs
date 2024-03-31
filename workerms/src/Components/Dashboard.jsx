@@ -5,9 +5,19 @@ import PeopleIcon from '@mui/icons-material/People';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import PersonIcon from '@mui/icons-material/Person';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Dashboard = () => {
+const nvaigate=useNavigate();
+axios.defaults.withCredentials = true
+  const handleLogout=()=>{
+    axios.get('http://localhost:3000/auth/logout').then(result=>{
+      if(result.data.Status){
+nvaigate('/adminlogin')
+      }
+    })
+  } 
 
   return (
     <Grid container>
@@ -31,7 +41,7 @@ const Dashboard = () => {
               <Link to="/dashboard/profile" style={{ textDecoration: 'none' }}>
                 <Box display="flex" flexDirection="row" alignItems="center" gap={1.5} > <PersonIcon fontSize="medium" /> <Typography variant='h6'>Profile</Typography></Box>
               </Link>
-              <Link to="" style={{ textDecoration: 'none' }}>
+              <Link onClick={handleLogout} to="" style={{ textDecoration: 'none' }}>
                 <Box display="flex" flexDirection="row" gap={1.5} alignItems="center"  > <PowerSettingsNewIcon fontSize="medium" /> <Typography variant='h6'>Logout</Typography></Box>
               </Link>
 
