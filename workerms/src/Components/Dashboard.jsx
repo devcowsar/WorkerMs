@@ -13,7 +13,7 @@ const Dashboard = () => {
     <Grid container>
       <Grid item xs={12} md={3.2}
       >
-        <Paper square elevation={1} sx={{ backgroundColor: "slategrey", height: "100vh",position:{md:'fixed'} }}>
+        <Paper square elevation={1} sx={{ backgroundColor: "slategrey", height: "100vh", position: { md: 'fixed' } }}>
           <Stack direction="column" spacing={4} justifyContent="space-between" alignSelf="strech">
             <Link to="/dashboard" style={{ textDecoration: "none" }}>
               <Box pt={5} pl={1} ><Typography variant='h5' color="whitesmoke" fontWeight={700}>workers management</Typography></Box>
