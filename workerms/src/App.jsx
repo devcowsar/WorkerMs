@@ -10,6 +10,8 @@ import Profile from './Components/Profile'
 import AddCategory from './Components/AddCategory'
 import AddWorker from './Components/AddWorker'
 import EditWorker from './Components/EditWorker'
+import Start from './Components/Start'
+import WorkerLogin from './Components/WorkerLogin'
 
 
 function App() {
@@ -17,7 +19,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path='/' element={<Start />}></Route>
         <Route path='/adminlogin' element={<Login />}></Route>
+        <Route path='/worker_login' element={<WorkerLogin />}></Route>
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='' element={<Home />}></Route>
           <Route path='/dashboard/worker' element={<Worker />}></Route>
