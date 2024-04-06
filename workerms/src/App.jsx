@@ -12,6 +12,7 @@ import AddWorker from './Components/AddWorker'
 import EditWorker from './Components/EditWorker'
 import Start from './Components/Start'
 import WorkerLogin from './Components/WorkerLogin'
+import WorkerDetail from './Components/WorkerDetail'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path='/' element={<Start />}></Route>
         <Route path='/adminlogin' element={<Login />}></Route>
         <Route path='/worker_login' element={<WorkerLogin />}></Route>
+        <Route path='/worker_detail/:id' element={<WorkerDetail/>}></Route>
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='' element={<Home />}></Route>
           <Route path='/dashboard/worker' element={<Worker />}></Route>
@@ -30,6 +32,7 @@ function App() {
           <Route path='/dashboard/add_category' element={<AddCategory/>}></Route>
           <Route path='/dashboard/add_worker' element={<AddWorker/>}></Route>
           <Route path='/dashboard/edit_worker/:id' element={<EditWorker/>}></Route>
+         
         </Route>
       </Routes>
     </BrowserRouter>

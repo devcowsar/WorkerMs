@@ -30,5 +30,18 @@ router.post("/worker_login", (req, res) => {
   });
 });
 
+router.get('/detail/:id',(req,res)=>{
+  const id=req.params.id;
+  const sql="SELECT * FROM woker where id = ?"
+  con.query(sql,[id],(err,result)=>{
+    if(err) return res.json({Status:false});
+    return res.json(result)
+  })
+})
+
+router.get('/logout',(req,res)=>{
+ res.clearCookie('token')
+ return res.json({Status:true})
+})
 
   export {router as WorkerRouter};

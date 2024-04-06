@@ -24,7 +24,7 @@ const WorkerLogin = () => {
 	axios.defaults.withCredentials = true;
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		axios.post('http://localhost:3000/worker/worker_login',values).then(result=>{if(result.data.loginStatus){navigate('/worker_detail')}
+		axios.post('http://localhost:3000/worker/worker_login',values).then(result=>{if(result.data.loginStatus){navigate('/worker_detail/'+result.data.id)}
 	else{
       setError(result.data.Error)
 	}}).catch(err=>console.log(err))
