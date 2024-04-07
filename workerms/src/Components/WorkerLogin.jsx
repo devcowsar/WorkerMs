@@ -1,5 +1,5 @@
 import React from 'react'
-import  { useState } from 'react'
+import { useState } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -15,20 +15,25 @@ import { useNavigate } from 'react-router-dom';
 
 
 const WorkerLogin = () => {
-    const [values,setValues]=useState({
-		email:'',
-		password:''
+	const [values, setValues] = useState({
+		email: '',
+		password: ''
 	});
 	const [error, setError] = useState(null)
 	const navigate = useNavigate()
 	axios.defaults.withCredentials = true;
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		axios.post('http://localhost:3000/worker/worker_login',values).then(result=>{if(result.data.loginStatus){navigate('/worker_detail/'+result.data.id)}
-	else{
-      setError(result.data.Error)
-	}}).catch(err=>console.log(err))
-		
+		axios.post('http://localhost:3000/worker/worker_login', values).then(result => {
+			if (result.data.loginStatus) {
+				localStorage.setItem("valid", true) 
+				navigate('/worker_detail/' + result.data.id)
+			 }
+			else {
+				setError(result.data.Error)
+			}
+		}).catch(err => console.log(err))
+
 	};
 
 	return (
@@ -73,7 +78,7 @@ const WorkerLogin = () => {
 							label="Email Address"
 							name="email"
 							autoComplete="email"
-							onChange={(e)=>setValues({...values,email:e.target.value})}
+							onChange={(e) => setValues({ ...values, email: e.target.value })}
 						/>
 						<TextField
 							margin="normal"
@@ -84,9 +89,9 @@ const WorkerLogin = () => {
 							type="password"
 							id="password"
 							autoComplete="current-password"
-							onChange={(e)=>setValues({...values,password:e.target.value})}
+							onChange={(e) => setValues({ ...values, password: e.target.value })}
 						/>
-						
+
 						<Button
 							type="submit"
 							fullWidth
@@ -103,7 +108,7 @@ const WorkerLogin = () => {
 				</Box>
 			</Grid>
 		</Grid>
-  )
+	)
 }
 
 export default WorkerLogin
