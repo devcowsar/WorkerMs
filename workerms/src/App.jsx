@@ -15,24 +15,26 @@ import WorkerLogin from './Components/WorkerLogin'
 import WorkerDetail from './Components/WorkerDetail'
 
 
+
 function App() {
+
 
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<Start />}></Route>
+        <Route path='/' element={<Start />}></Route>
         <Route path='/adminlogin' element={<Login />}></Route>
         <Route path='/worker_login' element={<WorkerLogin />}></Route>
-        <Route path='/worker_detail/:id' element={<WorkerDetail/>}></Route>
+        <Route path='/worker_detail/:id' element={<WorkerDetail />}></Route>
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='' element={<Home />}></Route>
           <Route path='/dashboard/worker' element={<Worker />}></Route>
           <Route path='/dashboard/category' element={<Category />}></Route>
           <Route path='/dashboard/profile' element={<Profile />}></Route>
-          <Route path='/dashboard/add_category' element={<AddCategory/>}></Route>
-          <Route path='/dashboard/add_worker' element={<AddWorker/>}></Route>
-          <Route path='/dashboard/edit_worker/:id' element={<EditWorker/>}></Route>
-         
+          <Route path='/dashboard/add_category' element={<AddCategory />}></Route>
+          <Route path='/dashboard/add_worker' element={<AddWorker />}></Route>
+          <Route path='/dashboard/edit_worker/:id' element={<EditWorker />}></Route>
+
         </Route>
       </Routes>
     </BrowserRouter>
