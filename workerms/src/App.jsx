@@ -13,6 +13,7 @@ import EditWorker from './Components/EditWorker'
 import Start from './Components/Start'
 import WorkerLogin from './Components/WorkerLogin'
 import WorkerDetail from './Components/WorkerDetail'
+import PrivateRoute from './Components/PrivateRoute'
 
 
 
@@ -27,7 +28,10 @@ function App() {
         <Route path='/worker_login' element={<WorkerLogin />}></Route>
         <Route path='/worker_detail/:id' element={<WorkerDetail />}></Route>
         <Route path='/dashboard' element={
-          <Dashboard />}>
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }>
           <Route path='' element={<Home />}></Route>
           <Route path='/dashboard/worker' element={<Worker />}></Route>
           <Route path='/dashboard/category' element={<Category />}></Route>
